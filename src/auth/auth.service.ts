@@ -13,9 +13,10 @@ export class AuthService {
   async logIn(
     username: string,
     pass: string,
+    id: string,
     //TODO: Add user role
   ): Promise<{ access_token: string }> {
-    const user = await this.usersService.findOne(username);
+    const user = await this.usersService.findOne(id);
     if (user?.password !== pass) {
       throw new UnauthorizedException();
     }

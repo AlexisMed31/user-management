@@ -5,4 +5,7 @@ export class LogInDto {
 
   @IsString()
   password: string;
+
+  @IsString()
+  id: string;
 }

@@ -20,13 +20,17 @@ export class AuthController {
   constructor(private authService: AuthService) {}
 
   @HttpCode(HttpStatus.OK)
-  @Post('login')
+  @Post('login') // auth/login
   logIn(@Body() logInDto: LogInDto) {
-    return this.authService.logIn(logInDto.username, logInDto.password);
+    return this.authService.logIn(
+      logInDto.username,
+      logInDto.password,
+      logInDto.id,
+    );
   }
 
   @UseGuards(AuthGuard)
-  @Get('profile')
+  @Get('profile') // auth/profile
   getProfile(@Request() req) {
     return req.user;
   }
