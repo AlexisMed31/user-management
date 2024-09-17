@@ -18,7 +18,7 @@ export class UsersController {
     return this.userService.findOne(params.id);
   }
 
-  @Post()
+  @Post('create')
   createUser() {
     return 'this creates a user';
   }
